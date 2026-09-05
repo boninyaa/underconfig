@@ -1,0 +1,110 @@
+@font-face {
+  font-family: 'jbmono';
+  src: url('assets/jbmono.ttf') format('truetype-variations'),
+       url('assets/jbmono.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'jbmonoit';
+  src: url('assets/jbmono-ita.ttf') format('truetype-variations'),
+       url('assets/jbmono-ita.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+:root {
+  background-color: #000;
+  font-family: 'jbmono', monospace;
+  color: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(rgba(18, 19, 39, 0.7), rgba(18, 12, 32, 0.8)),
+              url('assets/uconf-uibg.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  
+
+  padding: clamp(1.5rem, 4vw, 3rem);
+  min-height: 100vh;
+  
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heading-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 2%;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ulogo {
+  width: clamp(3.5rem, 7vw, 5.5rem);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.htext {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.uconf-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.uconf-desc {
+  margin: 0;
+  font-size: clamp(0.75rem, 1.4vw, 0.95rem);
+  color: #cfcfe2;
+  line-height: 1.3;
+}
+
+.uconf-author {
+  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  color: #9898b0;
+}
+
+.nodrag {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+
+
+@media (max-width: 480px) {
+  .heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}

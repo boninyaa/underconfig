@@ -1,0 +1,881 @@
+[
+  {
+    "id": "mobo",
+    "category": "graphics",
+    "label": "motion blur",
+    "description": "adjust motion blur. lower settings consume less CPU/GPU power. also not amazing for your eyes.",
+    "type": "sslider",
+    "options": [
+      "none",
+      "low",
+      "high"
+    ],
+    "default": "none",
+    "presets": {
+      "none": {
+        "mat_motion_blur_enabled": 0
+      },
+      "low": {
+        "mat_motion_blur_enabled": 1,
+        "mat_motion_blur_falling_intensity": 0,
+        "mat_motion_blur_falling_max": 20,
+        "mat_motion_blur_percent_of_screen_max": 1.5,
+        "mat_motion_blur_rotation_intensity": 0.05,
+        "mat_motion_blur_strength": 0.5
+      },
+      "high": {
+        "mat_motion_blur_enabled": 1,
+        "mat_motion_blur_falling_intensity": 1,
+        "mat_motion_blur_percent_of_screen_max": 2.5,
+        "mat_motion_blur_rotation_intensity": 0.05,
+        "mat_motion_blur_strength": 0.5,
+        "mat_motion_blur_falling_min": 10,
+        "mat_motion_blur_falling_max": 20
+      }
+    }
+  },
+  {
+    "id": "shadows",
+    "category": "graphics",
+    "label": "shadows",
+    "description": "adjust shadow quality or existence. lower settings consume less CPU power.",
+    "type": "sslider",
+    "options": [
+      "none",
+      "low",
+      "medium",
+      "high",
+      "high+"
+    ],
+    "default": "medium",
+    "presets": {
+      "none": {
+        "r_shadows": 0,
+        "r_shadowrendertotexture": 0,
+        "cl_blobbyshadows": 1,
+        "r_shadowmaxrendered": 0,
+        "nb_shadow_dist": -1
+      },
+      "low": {
+        "r_shadows": 1,
+        "r_shadowrendertotexture": 0,
+        "cl_blobbyshadows": 1,
+        "r_shadowmaxrendered": 0,
+        "nb_shadow_dist": -1
+      },
+      "medium": {
+        "r_shadows": 1,
+        "r_shadowrendertotexture": 1,
+        "cl_blobbyshadows": 0,
+        "r_shadowmaxrendered": 11,
+        "nb_shadow_dist": -1
+      },
+      "high": {
+        "r_shadows": 1,
+        "r_shadowrendertotexture": 1,
+        "cl_blobbyshadows": 0,
+        "r_shadowmaxrendered": 23,
+        "nb_shadow_dist": 400
+      },
+      "high+": {
+        "r_shadows": 1,
+        "r_shadowrendertotexture": 1,
+        "cl_blobbyshadows": 0,
+        "r_shadowmaxrendered": 160,
+        "nb_shadow_dist": 8192
+      }
+    }
+  },
+  {
+    "id": "fx",
+    "category": "graphics",
+    "label": "effects",
+    "description": "VFX quality. likely matters for performance.",
+    "type": "sslider",
+    "options": [
+      "near 0",
+      "low",
+      "medium",
+      "high",
+      "high+"
+    ],
+    "default": "medium",
+    "presets": {
+      "near 0": {
+        "cl_show_splashes": 0,
+        "tf_impactwatertimeenable": 1,
+        "cl_blobbyshadows": 1,
+        "fx_drawimpactdust": 0,
+        "fx_drawimpactdebris": 0,
+        "fx_drawmetalspark": 0,
+        "r_drawflecks": 0,
+        "cl_ejectbrass": 0,
+        "cl_muzzleflash_dlight_1st": 0,
+        "muzzleflash_light": 0,
+        "cl_fasttempentcollision": 1000000,
+        "cl_particle_batch_mode": 2,
+        "tf_particles_disable_weather": 1,
+        "mat_reduceparticles": 1,
+        "cl_drawmonitors": 0,
+        "tf_monitor_resolution": 32
+      },
+      "low": {
+        "cl_show_splashes": 0,
+        "tf_impactwatertimeenable": 1,
+        "cl_blobbyshadows": 1,
+        "fx_drawimpactdust": 0,
+        "fx_drawimpactdebris": 0,
+        "fx_drawmetalspark": 0,
+        "r_drawflecks": 0,
+        "cl_ejectbrass": 0,
+        "cl_muzzleflash_dlight_1st": 0,
+        "muzzleflash_light": 0,
+        "cl_fasttempentcollision": 1000000,
+        "cl_particle_batch_mode": 1,
+        "tf_particles_disable_weather": 1,
+        "mat_reduceparticles": 1,
+        "cl_drawmonitors": 0,
+        "tf_monitor_resolution": 32
+      },
+      "medium": {
+        "cl_show_splashes": 0,
+        "tf_impactwatertimeenable": 1,
+        "cl_blobbyshadows": 1,
+        "fx_drawimpactdebris": 1,
+        "fx_drawimpactdust": 1,
+        "fx_drawmetalspark": 1,
+        "r_drawflecks": 1,
+        "cl_ejectbrass": 0,
+        "cl_muzzleflash_dlight_1st": 0,
+        "muzzleflash_light": 0,
+        "cl_fasttempentcollision": 10,
+        "cl_particle_batch_mode": 1,
+        "tf_particles_disable_weather": 1,
+        "mat_reduceparticles": 1,
+        "cl_drawmonitors": 0,
+        "tf_monitor_resolution": 32
+      },
+      "high": {
+        "cl_show_splashes": 0,
+        "tf_impactwatertimeenable": 0,
+        "cl_blobbyshadows": 1,
+        "fx_drawimpactdebris": 1,
+        "fx_drawimpactdust": 1,
+        "fx_drawmetalspark": 1,
+        "r_drawflecks": 1,
+        "cl_ejectbrass": 0,
+        "cl_muzzleflash_dlight_1st": 1,
+        "muzzleflash_light": 0,
+        "cl_fasttempentcollision": 10,
+        "cl_particle_batch_mode": 1,
+        "tf_particles_disable_weather": 0,
+        "mat_reduceparticles": 1,
+        "cl_drawmonitors": 1,
+        "tf_monitor_resolution": 1024
+      },
+      "high+": {
+        "cl_show_splashes": 1,
+        "tf_impactwatertimeenable": 1,
+        "cl_blobbyshadows": 1,
+        "fx_drawimpactdebris": 1,
+        "fx_drawimpactdust": 1,
+        "fx_drawmetalspark": 1,
+        "r_drawflecks": 1,
+        "cl_ejectbrass": 1,
+        "cl_muzzleflash_dlight_1st": 1,
+        "muzzleflash_light": 0,
+        "cl_fasttempentcollision": 10,
+        "cl_particle_batch_mode": 1,
+        "tf_particles_disable_weather": 0,
+        "mat_reduceparticles": 1,
+        "cl_drawmonitors": 1,
+        "tf_monitor_resolution": 1024
+      }
+    }
+  },
+  {
+    "id": "txtr",
+    "category": "graphics",
+    "label": "textures",
+    "description": "texture quality. does NOT matter for performance at all.",
+    "type": "sslider",
+    "options": [
+      "garbage",
+      "low",
+      "medium",
+      "high",
+      "high+"
+    ],
+    "default": "high",
+    "presets": {
+      "garbage": {
+        "mat_picmip": 2
+      },
+      "low": {
+        "mat_picmip": 1
+      },
+      "medium": {
+        "mat_picmip": 0
+      },
+      "high": {
+        "mat_picmip": -1
+      },
+      "high+": {
+        "mat_picmip": -10
+      }
+    }
+  },
+  {
+    "id": "aa",
+    "category": "graphics",
+    "label": "anti-aliasing",
+    "description": "AA level. recommended that you keep this low for a performance boost.",
+    "type": "sslider",
+    "options": [
+      "none",
+      "2x",
+      "4x",
+      "8x"
+    ],
+    "default": "none",
+    "presets": {
+      "none": {
+        "mat_alphacoverage": 0,
+        "mat_antialias": 1
+      },
+      "2x": {
+        "mat_alphacoverage": 1,
+        "mat_antialias": 2
+      },
+      "4x": {
+        "mat_alphacoverage": 1,
+        "mat_antialias": 4
+      },
+      "8x": {
+        "mat_alphacoverage": 1,
+        "mat_antialias": 8
+      }
+    }
+  },
+  {
+    "id": "txtr_filtr",
+    "category": "graphics",
+    "label": "texture filtering",
+    "description": "not super consequential.",
+    "type": "sslider",
+    "options": [
+      "N64",
+      "basic",
+      "normal",
+      "high",
+      "high+",
+      "high++"
+    ],
+    "default": "high",
+    "presets": {
+      "N64": {
+        "mat_filterlightmaps": 0,
+        "mat_filtertextures": 0,
+        "mat_forceaniso": 1,
+        "mat_trilinear": 0
+      },
+      "basic": {
+        "mat_filterlightmaps": 1,
+        "mat_filtertextures": 1,
+        "mat_forceaniso": 1,
+        "mat_trilinear": 1
+      },
+      "normal": {
+        "mat_filterlightmaps": 1,
+        "mat_filtertextures": 1,
+        "mat_forceaniso": 2,
+        "mat_trilinear": 1
+      },
+      "high": {
+        "mat_filterlightmaps": 1,
+        "mat_filtertextures": 1,
+        "mat_forceaniso": 4,
+        "mat_trilinear": 1
+      },
+      "high+": {
+        "mat_filterlightmaps": 1,
+        "mat_filtertextures": 1,
+        "mat_forceaniso": 8,
+        "mat_trilinear": 1
+      },
+      "high++": {
+        "mat_filterlightmaps": 1,
+        "mat_filtertextures": 1,
+        "mat_forceaniso": 16,
+        "mat_trilinear": 1
+      }
+    }
+  },
+  {
+    "id": "lod",
+    "category": "graphics",
+    "label": "level of detail",
+    "description": "adjust how detailed models are. lower settings consume less CPU power.",
+    "type": "sslider",
+    "options": [
+      "low",
+      "medium",
+      "high",
+      "high+"
+    ],
+    "default": "medium",
+    "presets": {
+      "low": {
+        "r_rootlod": 2,
+        "r_lod": -1,
+        "r_staticprop_lod": -1
+      },
+      "medium": {
+        "r_rootlod": 1,
+        "r_lod": -1,
+        "r_staticprop_lod": -1
+      },
+      "high": {
+        "r_rootlod": 0,
+        "r_lod": -1,
+        "r_staticprop_lod": -1
+      },
+      "high+": {
+        "r_rootlod": 0,
+        "r_lod": 0,
+        "r_staticprop_lod": 0
+      }
+    }
+  },
+  {
+    "id": "lght",
+    "category": "graphics",
+    "label": "lighting",
+    "description": "adjust lighting quality. lower settings consume less CPU power.",
+    "type": "sslider",
+    "options": [
+      "low",
+      "medium",
+      "high",
+      "high+"
+    ],
+    "default": "low",
+    "presets": {
+      "low": {
+        "r_ambientboost": 0,
+        "r_lightaverage": 0,
+        "r_dynamic": 0,
+        "r_maxdlights": 0,
+        "r_worldlightmin": 999999,
+        "r_worldlights": 0,
+        "mat_disable_lightwarp": 1,
+        "r_pixelvisibility_partial": 0,
+        "r_lightcache_zbuffercache": 1
+      },
+      "medium": {
+        "r_ambientboost": 0,
+        "r_lightaverage": 0,
+        "r_dynamic": 0,
+        "r_maxdlights": 0,
+        "r_worldlightmin": 0.0004,
+        "r_worldlights": 0,
+        "mat_disable_lightwarp": 0,
+        "r_pixelvisibility_partial": 1,
+        "r_lightcache_zbuffercache": 0
+      },
+      "high": {
+        "r_ambientboost": 1,
+        "r_lightaverage": 1,
+        "r_dynamic": 1,
+        "r_maxdlights": 4,
+        "r_worldlightmin": 0.0002,
+        "r_worldlights": 4,
+        "mat_disable_lightwarp": 0,
+        "r_pixelvisibility_partial": 1,
+        "r_lightcache_zbuffercache": 0
+      },
+      "high+": {
+        "r_ambientboost": 1,
+        "r_lightaverage": 1,
+        "r_dynamic": 1,
+        "r_maxdlights": 32,
+        "r_worldlightmin": 0.000001,
+        "r_worldlights": 4,
+        "mat_disable_lightwarp": 0,
+        "r_pixelvisibility_partial": 1,
+        "r_lightcache_zbuffercache": 0
+      }
+    }
+  },
+  {
+    "id": "gibs",
+    "category": "graphics",
+    "label": "gibs and silly gibs",
+    "description": "adjust level of gibs aka pieces of player models. turning it off will make players explode into nothingness.",
+    "type": "sslider",
+    "options": [
+      "none",
+      "normal only",
+      "normal+silly"
+    ],
+    "default": "normal+silly",
+    "presets": {
+      "none": {
+        "violence_hgibs": 1,
+        "violence_agibs": 1,
+        "violence_ablood": 1,
+        "violence_hblood": 1,
+        "cl_burninggibs": 0,
+        "tf_playergib": 0,
+        "props_break_max_pieces": 0
+      },
+      "normal only": {
+        "violence_hgibs": 1,
+        "violence_agibs": 1,
+        "violence_ablood": 1,
+        "violence_hblood": 1,
+        "cl_burninggibs": 1,
+        "tf_playergib": 1,
+        "props_break_max_pieces": -1
+      },
+      "normal+silly": {
+        "violence_hgibs": 0,
+        "violence_agibs": 0,
+        "violence_ablood": 0,
+        "violence_hblood": 0,
+        "cl_burninggibs": 1,
+        "tf_playergib": 1,
+        "props_break_max_pieces": -1
+      }
+    }
+  },
+  {
+    "id": "stint",
+    "category": "graphics",
+    "label": "sheen tint",
+    "description": "adjust effect intensity for specialised/professional killstreak weapons.",
+    "type": "sslider",
+    "options": [
+      "none",
+      "mild",
+      "normal",
+      "intense"
+    ],
+    "default": "normal",
+    "presets": {
+      "none": {
+        "tf_sheen_alpha_firstperson": 0
+      },
+      "mild": {
+        "tf_sheen_alpha_firstperson": 0.1
+      },
+      "normal": {
+        "tf_sheen_alpha_firstperson": 0.5
+      },
+      "intense": {
+        "tf_sheen_alpha_firstperson": 1
+      }
+    }
+  },
+  {
+    "id": "sspeed",
+    "category": "graphics",
+    "label": "sheen speed",
+    "description": "adjust effect speed for specialised/professional killstreak weapons.",
+    "type": "sslider",
+    "options": [
+      "static",
+      "slow",
+      "normal",
+      "fast"
+    ],
+    "default": "normal",
+    "presets": {
+      "static": {
+        "tf_sheen_framerate": 0
+      },
+      "slow": {
+        "tf_sheen_framerate": 15
+      },
+      "normal": {
+        "tf_sheen_framerate": 25
+      },
+      "fast": {
+        "tf_sheen_framerate": 55
+      }
+    }
+  },
+  {
+    "id": "vsync",
+    "category": "graphics",
+    "label": "vsync",
+    "description": "boolean: toggle vsync. it is very much recommended that you DO NOT use this.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": false,
+    "presets": {
+      "true": {
+        "mat_vsync": 1
+      },
+      "false": {
+        "mat_vsync": 0
+      }
+    }
+  },
+  {
+    "id": "phong",
+    "category": "graphics",
+    "label": "phong",
+    "description": "boolean: source glossiness (the thing that makes australiums shine) keeping it off consumes less CPU power.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "mat_phong": 1,
+        "r_rimlight": 1
+      },
+      "false": {
+        "mat_phong": 0,
+        "r_rimlight": 0
+      }
+    }
+  },
+  {
+    "id": "props",
+    "category": "graphics",
+    "label": "props",
+    "description": "boolean: props. HIGHLY recommend that you keep this off as it is a massive CPU muncher.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "r_decalstaticprops": 1,
+        "cl_phys_props_enable": 1,
+        "r_propsmaxdist": 500,
+        "lod_TransitionDist": -5000,
+        "r_drawdetailprops": 0,
+        "cl_phys_props_respawndist": 500,
+        "cl_phys_props_respawnrate": 120,
+        "cl_phys_props_max": 15,
+        "cl_detailfade": 0,
+        "cl_detaildist": 1200
+      },
+      "false": {
+        "r_decalstaticprops": 0,
+        "cl_phys_props_enable": 0,
+        "r_propsmaxdist": 0,
+        "lod_TransitionDist": -1,
+        "r_drawdetailprops": 0,
+        "cl_detailfade": 0,
+        "cl_detaildist": 1
+      }
+    }
+  },
+  {
+    "id": "ragdolls",
+    "category": "graphics",
+    "label": "ragdolls",
+    "description": "boolean: ragdolls. turning this off will make players disappear into thin air upon death. not *super* CPU-hungry.",
+    "type": "checkbox",
+    "default": true,
+    "lowestBool": false,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "cl_ragdoll_fade_time": 10,
+        "cl_ragdoll_forcefade": 0,
+        "cl_ragdoll_physics_enable": 1,
+        "cl_ragdoll_collide": 1,
+        "ragdoll_sleepaftertime": 1.5
+      },
+      "false": {
+        "cl_ragdoll_fade_time": -1,
+        "cl_ragdoll_forcefade": 1,
+        "cl_ragdoll_physics_enable": 0,
+        "cl_ragdoll_collide": 0,
+        "ragdoll_sleepaftertime": 0
+      }
+    }
+  },
+  {
+    "id": "jbones",
+    "category": "graphics",
+    "label": "jigglebones",
+    "description": "boolean: jiggles. best demonstrated by the fish flapping around. turning this off harms the marine population.",
+    "type": "checkbox",
+    "default": true,
+    "lowestBool": false,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "cl_jiggle_bone_framerate_cutoff": 67
+      },
+      "false": {
+        "cl_jiggle_bone_framerate_cutoff": 0
+      }
+    }
+  },
+  {
+    "id": "ropes",
+    "category": "graphics",
+    "label": "ropes",
+    "description": "boolean: ropes O_O. another CPU muncher you probably don't need. unfortunately not the sexy kind.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "r_drawropes": 1,
+        "rope_rendersolid": 1,
+        "r_ropetranslucent": 0,
+        "rope_smooth": 1,
+        "rope_subdiv": 1,
+        "rope_collide": 0,
+        "rope_wind_dist": 0
+      },
+      "false": {
+        "r_drawropes": 0,
+        "rope_rendersolid": 0,
+        "r_ropetranslucent": 0,
+        "rope_smooth": 0,
+        "rope_subdiv": 0,
+        "rope_collide": 0,
+        "rope_wind_dist": 0
+      }
+    }
+  },
+  {
+    "id": "3sky",
+    "category": "graphics",
+    "label": "3D sky",
+    "description": "boolean: 3D skybox. minimal actual performance impact upon turning this off.",
+    "type": "checkbox",
+    "default": true,
+    "lowestBool": false,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "r_3dsky": 1
+      },
+      "false": {
+        "r_3dsky": 0
+      }
+    }
+  },
+  {
+    "id": "miscv",
+    "category": "graphics",
+    "label": "misc visuals",
+    "description": "boolean: toggle pyro/romevision. you probably do not need these.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "pyro_dof": 1,
+        "pyro_vignette": 1,
+        "tf_romevision_opt_in": 1
+      },
+      "false": {
+        "pyro_dof": 0,
+        "pyro_vignette": 0,
+        "tf_romevision_opt_in": 0
+      }
+    }
+  },
+  {
+    "id": "interp",
+    "category": "network",
+    "label": "interpolation patch",
+    "description": "boolean: use *subjectively* better settings for networking. does not guarantee le epic frags.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": false,
+    "presets": {
+      "true": [
+        "cl_cmdrate 66",
+        "cl_updaterate 66",
+        "cl_interp 0",
+        "cl_interp_ratio 1"
+      ],
+      "false": []
+    }
+  },
+  {
+    "id": "cput",
+    "category": "misc",
+    "label": "CPU threading",
+    "description": "adjust CPU threading mode. keep this on auto if you don't know what it is.",
+    "type": "sslider",
+    "options": [
+      "auto",
+      "single",
+      "queued",
+      "2x"
+    ],
+    "default": "auto",
+    "presets": {
+      "auto": {
+        "mat_queue_mode": -1
+      },
+      "single": {
+        "mat_queue_mode": 0
+      },
+      "queued": {
+        "mat_queue_mode": 1
+      },
+      "2x": {
+        "mat_queue_mode": 2
+      }
+    }
+  },
+  {
+    "id": "gamma",
+    "category": "misc",
+    "label": "gamma",
+    "description": "adjust how bright the game looks.",
+    "type": "sslider",
+    "options": [
+      "dim",
+      "default",
+      "bright"
+    ],
+    "default": "default",
+    "presets": {
+      "dim": {
+        "mat_monitorgamma": 2.4
+      },
+      "default": {
+        "mat_monitorgamma": 2
+      },
+      "bright": {
+        "mat_monitorgamma": 1.6
+      }
+    }
+  },
+  {
+    "id": "ncm",
+    "category": "misc",
+    "label": "null-cancelling movement",
+    "description": "boolean: allow for movement when you press down on the opposite direction of where you're going.",
+    "type": "checkbox",
+    "default": true,
+    "lowestBool": true,
+    "highestBool": true,
+    "presets": {
+      "true": [
+        "alias +mfwd \"-back;+forward;alias checkfwd +forward\"",
+        "alias +mback \"-forward;+back;alias checkback +back\"",
+        "alias +mleft \"-moveright;+moveleft;alias checkleft +moveleft\"",
+        "alias +mright \"-moveleft;+moveright;alias checkright +moveright\"",
+        "alias -mfwd \"-forward;checkback;alias checkfwd none\"",
+        "alias -mback \"-back;checkfwd;alias checkback none\"",
+        "alias -mleft \"-moveleft;checkright;alias checkleft none\"",
+        "alias -mright \"-moveright;checkleft;alias checkright none\"",
+        "alias checkfwd none",
+        "alias checkback none",
+        "alias checkleft none",
+        "alias checkright none",
+        "alias none \"\""
+      ],
+      "false": []
+    }
+  },
+  {
+    "id": "contracker",
+    "category": "misc",
+    "label": "contracker progress UI",
+    "description": "boolean: toggle contracker progress bar shown during gameplay.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": false,
+    "presets": {
+      "true": {
+        "tf_contract_progress_show": 1
+      },
+      "false": {
+        "tf_contract_progress_show": 0
+      }
+    }
+  },
+  {
+    "id": "graph",
+    "category": "misc",
+    "label": "show graph",
+    "description": "boolean: toggle performance and latency display in-game (net_graph).",
+    "type": "checkbox",
+    "default": true,
+    "lowestBool": true,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "net_graph": 1
+      },
+      "false": {
+        "net_graph": 0
+      }
+    }
+  },
+  {
+    "id": "fws",
+    "category": "misc",
+    "label": "quick weapon swap",
+    "description": "boolean: toggle the thing that makes the game playable. (no extra inputs to switch weapons)",
+    "type": "checkbox",
+    "default": true,
+    "lowestBool": true,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "hud_fastswitch": 1
+      },
+      "false": {
+        "hud_fastswitch": 0
+      }
+    }
+  },
+  {
+    "id": "hpm",
+    "category": "misc",
+    "label": "hud player model",
+    "description": "boolean: toggle 3d character model at the bottom of the screen during gameplay.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": true,
+    "presets": {
+      "true": {
+        "cl_hud_playerclass_use_playermodel": 1
+      },
+      "false": {
+        "cl_hud_playerclass_use_playermodel": 0
+      }
+    }
+  },
+  {
+    "id": "pb",
+    "category": "misc",
+    "label": "pure bypass",
+    "description": "boolean: bypass some of the restrictions for visual mods imposed by valve's servers. see the faq for more info.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": false,
+    "presets": {
+      "true": [
+        "map itemtest",
+        "disconnect"
+      ],
+      "false": []
+    }
+  }
+]

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="darkreader-lock" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>underconfig! // faq</title>
+    <link rel="icon" type="image/png" href="../assets/uconf-logo.png" />
+    <link rel="stylesheet" href="layout-faq.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <a href="../index.html" class="back-link">← back to main page</a>
+        <div class="title-row">
+          <img src="../assets/uconf-logo.png" class="logo nodrag" draggable="false" />
+          <h1 class="title">faq</h1>
+        </div>
+      </header>
+
+      <main class="list">
+        <article class="item">
+          <h2 class="question">is this safe to use?</h2>
+          <div class="answer">
+            <p>yes. it is 100% safe to use.</p>
+            <p>no, it will not get you VAC banned, explode your computer or give your dog lung cancer.</p>
+            <p>no one has ever been VAC banned or gotten a virus from using console variables in a source game.</p>
+            <p>
+              convars, aka console commands, do NOT have the power to change any files in either TF2 or your base system. they also do not have the power to affect server-side functionality, your items or your steam account. they purely concern settings in your current TF2 installation and they can be very easily restored by removing all extra cfg and/or custom files and appending <code class="inline">-autoconfig</code> to your TF2 launch arguments. more on resetting settings below.
+            </p>
+          </div>
+        </article>
+
+        <article class="item">
+          <h2 class="question">i am using another config (mastercomfig etc.), what should i do before i use this?</h2>
+          <div class="answer">
+            <p>if you are using mastercomfig and want to switch over, simply delete or move:</p>
+            <div class="codeblock">
+tf/custom/mastercomfig-xxx.vpk<br />
+tf/custom/addons-xxx.vpk<br />
+tf/custom/app<br />
+tf/cfg/overrides
+            </div>
+            <p>if you are using autoexec.cfg from somewhere else, just delete or move that one.</p>
+            <div class="impbox">
+              <span class="imptitle">important!</span>
+              <p>
+                after you purge previous configurations, it is best to append <code class="inline">-autoconfig</code> to your TF2 launch options, wait until it loads into the main menu, exit and then remove <code class="inline">-autoconfig</code>. doing this resets all remains of previous configurations and prevents the possibility of weird conflicts.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="item">
+          <h2 class="question">how do i use it?</h2>
+          <div class="answer">
+            <p>either<br />click the "autoexec.cfg" button and download the .cfg file<br />or<br />click the "copy!" button, open a blank text editor, paste, then save it as either autoexec.cfg or anything else<br />(if you name it something other than autoexec, make sure to still create an autoexec.cfg file and add "exec yourconfigname" to it!)</p>
+            
+            <p>on windows, your cfg folder is typically located in</p>
+            <div class="codeblock">C:\Program Files (x86)\Steam\steamapps\common\Team Fortress 2\tf</div>
+
+            <p>on linux (non-flatpak), your cfg folder is typically located in</p>
+            <div class="codeblock">/home/yourusername/.local/share/Steam/steamapps/common/Team Fortress 2/tf/</div>
+
+            <p>if you installed the game somewhere else or don't want to bother finding the directory yourself, you can right click TF2 in your steam library and choose the option that automatically opens the game directory.</p>
+            <p>put the autoexec.cfg in your "cfg" folder (NOT "custom") inside "tf" and you're set!</p>
+          </div>
+        </article>
+
+        <article class="item">
+          <h2 class="question">how is this any different from mastercomfig? (comfig.app)</h2>
+          <div class="answer">
+            <p>functionally not very. from a purely technical sense, this is far less advanced than masterconfig. but that is also exactly why this exists in the first place. i have nothing against mastercomfig itself, but i was annoyed by how sort of unnecessarily extensive it is and how much it relies on relentless aliasing for "simplicity" and having you deal with multiple .vpk files when most of the things it achieves can be done with one cfg file.</p>
+            <p>this serves to do exactly that. zero bloat, zero custom aliases and all you get is a .cfg file that you can paste into your tf2 dir.</p>
+          </div>
+        </article>
+
+        <article class="item">
+          <h2 class="question">why do i need this, anyway?</h2>
+          <div class="answer">
+            <p>as silly as it might sound, even setting your graphics settings has a learning curve in TF2.</p>
+            <p>in about 99% of games that people play on their PCs, you do not need to do this and you can simply use the in-game options to configure the game to your needs. in the case of TF2, a horrendously unoptimised cpu-hungry half-life 2 mod that relies on a codebase from 20+ years ago, it is very much preferable that you never use the in-game settings.</p>
+            <p>the in-game settings do not give you control over most of the variables you can set using commands. and even with the ones you can customise using the GUI, it is not a smooth experience as the game tends to bug out or freeze for a minute when you decide to change even the smallest thing that forces the clunky source 1 engine to flush and then reload assets back to memory.</p>
+            <p>for the least amount of headache, it is highly recommended to configure graphics settings before launching the game.</p>
+          </div>
+        </article>
+
+        <article class="item">
+          <h2 class="question">what's "pure bypass"? do i need it?</h2>
+          <div class="answer">
+            <p>depends.</p>
+            <p>if you plan on using visual mods on valve's official servers, then yes.
+            if you don't play on valve servers or don't use visual mods, then no.</p>
+            <p>TF2 has a convar called sv_pure that restricts client-side mods to varying degrees. casual mode uses sv_pure value 1. normally, sv_pure being set to 1 completely reverts certain visual mods (relating to animations and models) back to vanilla.</p>
+            <p>custom HUDs and crosshairs are NOT affected by sv_pure. you don't need this to use a HUD.</p> 
+            <p>this option simply loads then unloads itemtest which forces TF2 to initialise assets from the get-go, which somehow bypasses sv_pure 1 restrictions entirely due to some programming oversight or something.</p>
+            <p>sometimes, community servers use sv_pure 1 as well so this applies to those too, but that is rather rare. most community servers stick with sv_pure 0 which doesn't restrict mods.</p>
+            <p>only enable this if you need it, as loading a map on boot can stall the loading time for anywhere between 20 seconds to a few minutes depending on your hardware.</p>
+          </div>
+        </article>
+
+        <article class="item">
+          <h2 class="question">i set everything to low and it still runs like ass, wtf?</h2>
+          <div class="answer">
+            <p>this is the curse of the source 1 engine.</p>
+            <p>as i somewhat explained in the answer right above, TF2 runs on a graphics api from 2002 (the highest dxlevel TF2 can use is dx9, vulkan and openGL options serve to only translate dx calls while the game itself still runs on either dx8 or dx9).</p>
+            <p>source 1 is horrible at utilising more than more one or two CPU cores, as single/dual core CPUs were the norm over 20 years ago.</p>
+            <p>not only that, but TF2 barely uses your graphics card at all. most of the heavy graphical calculations needed to render 3D elements are done by overloading just one core in your CPU, while the other cores and your GPU kind of sit around not doing much.</p>
+            <p>as a result of this, TF2 runs worse than you'd expect on configurations that are considered good by 202X standards. there is unfortunately nothing you can do about this besides reverse engineer the game to port it to a modern graphics engine maybe.</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
