@@ -1,4 +1,6 @@
-<img src="assets/underconfig-title.png" width="500"/>
+<a href="https://underconfig.me">
+  <img src="assets/underconfig-title.png" width="500">
+</a>
 
 <h1 class="question">underconfig</h1>
 straight-forward, fast tf2 configurator with just a .cfg file!
