@@ -1,4 +1,4 @@
-<a href="https://underconfig.me">
+<a href="https://underconfig.me" target="_blank" rel="noopener noreferrer">
   <img src="assets/underconfig-title.png" width="500">
 </a>
 
