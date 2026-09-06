@@ -2,7 +2,7 @@
 
 available now at [underconfig.me](https://underconfig.me)!
 <h1 class="question">underconfig</h1>
-straight-forward, fast tf2 configurator with just a .cfg file!
+straight-forward, fast tf2 config generator with just a .cfg file!
 
 
 
