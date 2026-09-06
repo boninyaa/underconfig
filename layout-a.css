@@ -20,6 +20,22 @@ a {
   text-decoration: none;
 }
 
+.headlink {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  opacity: 0.85;
+  display: inline-block;
+  width: fit-content;
+}
+
+.headlink:hover {
+  color: #b6fffb;
+  text-decoration: none;
+  opacity: 1
+}
+
+
 :root {
   background-color: #000;
   font-family: 'jbmono', monospace;

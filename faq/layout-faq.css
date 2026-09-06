@@ -54,6 +54,7 @@ body {
 
 .back-link:hover {
   opacity: 1;
+  color: #b6fffb;
   text-decoration: none;
 }
 
