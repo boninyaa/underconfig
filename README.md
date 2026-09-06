@@ -13,7 +13,7 @@ features:
 - no need to add anything to tf/custom
 - no aliases for source convars that already exist
 - meaning it is super easy to manually edit
-- you can also clone this repo and use it completely offline as it has zero CDN reliance and fully portable
+- you can also clone this repo and use it completely offline as it is reliant on pure vanilla js and therefore fully portable
 
 <h1>faq</h1>
 <p>(more on https://underconfig.me/faq)</p><br>
