@@ -1,9 +1,10 @@
-<a href="https://underconfig.me" target="_blank" rel="noopener noreferrer">
-  <img src="assets/underconfig-title.png" width="500">
-</a>
+<img src="assets/underconfig-title.png" width="500">
 
+available now at [underconfig.me](https://underconfig.me)!
 <h1 class="question">underconfig</h1>
 straight-forward, fast tf2 configurator with just a .cfg file!
+
+
 
 it's kind of like [mastercomfig](https://github.com/mastercomfig/mastercomfig), but with an utilitarian philosophy.
 
