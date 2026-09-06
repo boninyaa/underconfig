@@ -21,7 +21,7 @@ features:
 <p>yes. it is 100% safe to use.</p>
 <p>no, it will not get you VAC banned, explode your computer or give your dog lung cancer.</p>
 <p>no one has ever been VAC banned or gotten a virus from using console variables in a source game.</p>
-<p> convars, aka console commands, do NOT have the power to change any files in either TF2 or your base system. they also do not have the power to affect server-side functionality, your items or your steam account. they purely concern settings in your current TF2 installation and they can be very easily restored by removing all extra cfg and/or custom files and appending <code>-autoconfig</code> to your TF2 launch arguments. more on resetting settings below.</p><br>
+<p> convars, aka console commands, do NOT have the power to change any files in either TF2 or your base system. they also do not have the power to affect server-side functionality, your items or your steam account. they purely concern settings in your current TF2 installation and they can be very easily restored by removing all extra cfg and/or custom files and appending <code>-autoconfig</code> to your TF2 launch arguments. more on resetting settings at the faq page on the site.</p><br>
 
 <p><strong>is this "better" than mastercomfig?</strong></p>
 <p>functionally not very much so. from a purely technical sense, this is far less advanced than masterconfig. but that is also exactly why this exists in the first place. i have nothing against mastercomfig itself, but i was annoyed by how sort of unnecessarily extensive it is and how much it relies on relentless aliasing for "simplicity" and having you deal with multiple .vpk files when most of the things it achieves can be done with one cfg file.</p>
