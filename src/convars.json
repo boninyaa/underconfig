@@ -877,5 +877,51 @@
       ],
       "false": []
     }
+  },
+    {
+    "id": "ascii",
+    "category": "misc",
+    "label": "ascii art!",
+    "description": "boolean: print underconfig ascii art upon loading the config. not necessary but also harmless.",
+    "type": "checkbox",
+    "default": true,
+    "lowestBool": true,
+    "highestBool": true,
+    "presets": {
+      "true": [
+"echo \"                                                                                                    \"",
+"echo \"                                                                                                    \"",
+"echo \"                                                                                                    \"",
+"echo \"                                                                                                    \"",
+"echo \"                                                                                                    \"",
+"echo \"                                                 <>                                                 \"",
+"echo \"                                                <<>><                                               \"",
+"echo \"                                            <<<<    <<><                                            \"",
+"echo \"                                                       ><>>                                         \"",
+"echo \"                                       <<<><                                                        \"",
+"echo \"                                      <><>                   ~<<<<                                  \"",
+"echo \"                                                               <<<>                                 \"",
+"echo \"                               <<<><                                                                \"",
+"echo \"                              <<<<                                  <<<<                            \"",
+"echo \"                                                                      ><<<                          \"",
+"echo \"                           <><<                                                                     \"",
+"echo \"                               ~                                     <><>~                          \"",
+"echo \"                              <<><-                                                                 \"",
+"echo \"                                <<<<                           ><>>~                                \"",
+"echo \"                                       >                      <<<~                                  \"",
+"echo \"                                      <>><~                                                         \"",
+"echo \"                                        <><>           <<<<<                                        \"",
+"echo \"                                               <     <<><<                                          \"",
+"echo \"                                              >><>                                                  \"",
+"echo \"                                                <<<<                                                \"",
+"echo \"                                                 <>                                                 \"",
+"echo \"                                                                                                    \"",
+"echo \"                                                                                                    \"",
+"echo \"                                                                                                    \"",
+"echo \"                                                                                                    \"",
+"echo \"                                                                                                    \""
+      ],
+      "false": []
+    }
   }
 ]
