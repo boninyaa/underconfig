@@ -772,6 +772,10 @@
     "highestBool": true,
     "presets": {
       "true": [
+        "bind w +mfwd",
+        "bind s +mback",
+        "bind a +mleft",
+        "bind d +mright",
         "alias +mfwd \"-back;+forward;alias checkfwd +forward\"",
         "alias +mback \"-forward;+back;alias checkback +back\"",
         "alias +mleft \"-moveright;+moveleft;alias checkleft +moveleft\"",
