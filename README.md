@@ -25,7 +25,7 @@ features:
 
 <p><strong>is this "better" than mastercomfig?</strong></p>
 <p>functionally not very much so. from a purely technical sense, this is far less advanced than masterconfig. but that is also exactly why this exists in the first place. i have nothing against mastercomfig itself, but i was annoyed by how sort of unnecessarily extensive it is and how much it relies on relentless aliasing for "simplicity" and having you deal with multiple .vpk files when most of the things it achieves can be done with one cfg file.</p>
-<p>this serves to do exactly that. zero custom aliases and all you get is a .cfg file that you can paste into your tf2 dir.</p><br>
+<p>this serves to do exactly that. no custom aliases for convars and all you get is a .cfg file that you can paste into your tf2 dir.</p><br>
 
 <p><strong>how do i use it?</strong></p>
 
