@@ -90,7 +90,7 @@
     "id": "fx",
     "category": "graphics",
     "label": "effects",
-    "description": "VFX quality. likely matters for performance.",
+    "description": "adjust quality of effects (fire, explosions etc.) lower settings consume less CPU power.",
     "type": "sslider",
     "options": [
       "near 0",
@@ -197,7 +197,7 @@
     "id": "txtr",
     "category": "graphics",
     "label": "textures",
-    "description": "texture quality. does NOT matter for performance at all.",
+    "description": "adjust resolution of textures. does NOT matter for performance at all.",
     "type": "sslider",
     "options": [
       "garbage",
@@ -229,7 +229,7 @@
     "id": "aa",
     "category": "graphics",
     "label": "anti-aliasing",
-    "description": "AA level. recommended that you keep this low for a performance boost.",
+    "description": "adjust level of smoothing around objects (aka \"anti-aliasing\") keeping this turned off is recommended for performance.",
     "type": "sslider",
     "options": [
       "none",
@@ -261,10 +261,10 @@
     "id": "txtr_filtr",
     "category": "graphics",
     "label": "texture filtering",
-    "description": "not super consequential.",
+    "description": "adjust level of smoothing applied to textures. has zero performance effect. setting this to none alongside garbage texture quality will make your game look like minecraft. some people like that.",
     "type": "sslider",
     "options": [
-      "N64",
+      "none",
       "basic",
       "normal",
       "high",
@@ -273,7 +273,7 @@
     ],
     "default": "high",
     "presets": {
-      "N64": {
+      "none": {
         "mat_filterlightmaps": 0,
         "mat_filtertextures": 0,
         "mat_forceaniso": 1,
@@ -509,7 +509,7 @@
     "id": "vsync",
     "category": "graphics",
     "label": "vsync",
-    "description": "boolean: toggle vsync. it is very much recommended that you DO NOT use this.",
+    "description": "boolean: toggle vertical sync. this caps the frame rate to your monitor's refresh rate in an attempt to smooth out fps fluctuations. though it's really really bad at doing that (creates noticable input lag) so don't enable this and use something external (like RTSS) to limit frames instead of relying on this.",
     "type": "checkbox",
     "default": false,
     "lowestBool": false,
@@ -547,7 +547,7 @@
     "id": "props",
     "category": "graphics",
     "label": "props",
-    "description": "boolean: props. HIGHLY recommend that you keep this off as it is a massive CPU muncher.",
+    "description": "boolean: props. HIGHLY recommend that you keep this off as it is an unexpected CPU muncher.",
     "type": "checkbox",
     "default": false,
     "lowestBool": false,
@@ -580,7 +580,7 @@
     "id": "ragdolls",
     "category": "graphics",
     "label": "ragdolls",
-    "description": "boolean: ragdolls. turning this off will make players disappear into thin air upon death. not *super* CPU-hungry.",
+    "description": "boolean: ragdolls. turning this off will make players disappear into thin air upon death.",
     "type": "checkbox",
     "default": true,
     "lowestBool": false,
@@ -654,7 +654,7 @@
     "id": "3sky",
     "category": "graphics",
     "label": "3D sky",
-    "description": "boolean: 3D skybox. minimal actual performance impact upon turning this off.",
+    "description": "boolean: render the skybox in 3D. doesn't really have a big effect on performance.",
     "type": "checkbox",
     "default": true,
     "lowestBool": false,
@@ -696,9 +696,9 @@
     "label": "interpolation patch",
     "description": "boolean: use *subjectively* better settings for networking. does not guarantee le epic frags.",
     "type": "checkbox",
-    "default": false,
-    "lowestBool": false,
-    "highestBool": false,
+    "default": true,
+    "lowestBool": true,
+    "highestBool": true,
     "presets": {
       "true": [
         "cl_cmdrate 66",
@@ -709,11 +709,12 @@
       "false": []
     }
   },
+
   {
     "id": "cput",
     "category": "misc",
     "label": "CPU threading",
-    "description": "adjust CPU threading mode. keep this on auto if you don't know what it is.",
+    "description": "adjust CPU threading mode. in most cases, this doesn't need to be on anything besides auto. don't change it if you have no idea what it does.",
     "type": "sslider",
     "options": [
       "auto",
@@ -761,11 +762,31 @@
       }
     }
   },
+    
+  {
+    "id": "demor",
+    "category": "misc",
+    "label": "auto-record matches",
+    "description": "boolean: whether or not to automatically record demos of matches. source engine records by storing text data and demo files can later be played using the demo viewer (demoui) in-game. even though the game doesn't actually record your screen, this does have an affect on performance.",
+    "type": "checkbox",
+    "default": false,
+    "lowestBool": false,
+    "highestBool": false,
+    "presets": {
+      "true": [
+        "ds_enable 2"
+      ],
+      "false": [
+        "ds_enable 0"
+      ]
+    }
+  },
+
   {
     "id": "ncm",
     "category": "misc",
     "label": "null-cancelling movement",
-    "description": "boolean: allow for movement when you press down on the opposite direction of where you're going.",
+    "description": "boolean: allows you to cancel out your direction by pressing down on the opposite key. this is very useful as it makes rapid side-to-side movement much easier.",
     "type": "checkbox",
     "default": true,
     "lowestBool": true,
@@ -793,6 +814,45 @@
       "false": []
     }
   },
+
+    {
+    "id": "hitsound",
+    "category": "misc",
+    "label": "hitsounds",
+    "description": "boolean: play hitsounds.",
+    "type": "checkbox",
+    "default": true,
+    "lowestBool": true,
+    "highestBool": true,
+    "presets": {
+      "true": [
+        "tf_dingalingaling 1"
+      ],
+      "false": [
+        "tf_dingalingaling 0"
+      ]
+    }
+  },
+
+      {
+    "id": "killsound",
+    "category": "misc",
+    "label": "killsounds",
+    "description": "boolean: play killsounds.",
+    "type": "checkbox",
+    "default": true,
+    "lowestBool": true,
+    "highestBool": true,
+    "presets": {
+      "true": [
+        "tf_dingalingaling_lasthit 1"
+      ],
+      "false": [
+        "tf_dingalingaling_lasthit 0"
+      ]
+    }
+  },
+
   {
     "id": "contracker",
     "category": "misc",
@@ -869,7 +929,7 @@
     "id": "pb",
     "category": "misc",
     "label": "pure bypass",
-    "description": "boolean: bypass some of the restrictions for visual mods imposed by valve's servers. see the faq for more info.",
+    "description": "boolean: bypass some of the restrictions for visual mods imposed by valve's servers. see faq page for more info.",
     "type": "checkbox",
     "default": false,
     "lowestBool": false,
@@ -898,27 +958,26 @@
 "echo \"                                                                                                    \"",
 "echo \"                                                                                                    \"",
 "echo \"                                                                                                    \"",
-"echo \"                                                 <>                                                 \"",
-"echo \"                                                <<>><                                               \"",
-"echo \"                                            <<<<    <<><                                            \"",
-"echo \"                                                       ><>>                                         \"",
-"echo \"                                       <<<><                                                        \"",
-"echo \"                                      <><>                   ~<<<<                                  \"",
-"echo \"                                                               <<<>                                 \"",
-"echo \"                               <<<><                                                                \"",
-"echo \"                              <<<<                                  <<<<                            \"",
-"echo \"                                                                      ><<<                          \"",
-"echo \"                           <><<                                                                     \"",
-"echo \"                               ~                                     <><>~                          \"",
-"echo \"                              <<><-                                                                 \"",
-"echo \"                                <<<<                           ><>>~                                \"",
-"echo \"                                       >                      <<<~                                  \"",
-"echo \"                                      <>><~                                                         \"",
-"echo \"                                        <><>           <<<<<                                        \"",
-"echo \"                                               <     <<><<                                          \"",
-"echo \"                                              >><>                                                  \"",
-"echo \"                                                <<<<                                                \"",
-"echo \"                                                 <>                                                 \"",
+"echo \"                                                                                                    \"",
+"echo \"                                                YYYY                                                \"",
+"echo \"                                             YYYY YY                                                \"",
+"echo \"                                             YY       YYY                                           \"",
+"echo \"                                         YY            YYY                                          \"",
+"echo \"                                       YYY                  YY                                      \"",
+"echo \"                                    Y                       YYYY                                    \"",
+"echo \"                                  YYYY      YYYYYYYYYYYY                                            \"",
+"echo \"                                           YYY        YYY        YYYY                               \"",
+"echo \"                             YYYY         YYY          YYY           YY                             \"",
+"echo \"                             YY YY        YYY          YYY         YYYY                             \"",
+"echo \"                                YYYY       YYYY      YYYY       YY                                  \"",
+"echo \"                                             YYYYYYYYYY       YYYY                                  \"",
+"echo \"                                     YYYY                                                           \"",
+"echo \"                                       Y                 YYYY                                       \"",
+"echo \"                                          YYYY            Y                                         \"",
+"echo \"                                           YYY      YYYY                                            \"",
+"echo \"                                               YYY  YY                                              \"",
+"echo \"                                                YYYY                                                \"",
+"echo \"                                                                                                    \"",
 "echo \"                                                                                                    \"",
 "echo \"                                                                                                    \"",
 "echo \"                                                                                                    \"",

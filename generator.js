@@ -20,11 +20,63 @@ let configState = {};
 let convarsData = [];
 
 document.addEventListener('DOMContentLoaded', async () => {
+  initTheme();
+  initMobileOutput();
   await fetchConv();
   elementminmax();
   elementcfget();
   elementcopy();
 });
+
+function initTheme() {
+  const themeBtn = document.getElementById('btn-theme');
+  const themeIcon = document.getElementById('theme-icon');
+  const themeText = document.getElementById('theme-text');
+
+  function syncThemeUI(isLight) {
+    document.documentElement.classList.toggle('light-mode', isLight);
+    if (isLight) {
+      themeIcon.src = 'assets/moon.svg';
+      themeText.textContent = 'switch to default';
+    } else {
+      themeIcon.src = 'assets/sun.svg';
+      themeText.textContent = 'switch to light';
+    }
+  }
+
+  const savedTheme = localStorage.getItem('underconfig-theme');
+  syncThemeUI(savedTheme === 'light');
+
+  themeBtn.addEventListener('click', () => {
+    const nextIsLight = !document.documentElement.classList.contains('light-mode');
+    localStorage.setItem('underconfig-theme', nextIsLight ? 'light' : 'dark');
+    syncThemeUI(nextIsLight);
+  });
+}
+
+function initMobileOutput() {
+  const outputPanel = document.querySelector('.outputpanel');
+  const toggleBtn = document.getElementById('btn-toggle-output');
+  const faqSnippet = document.getElementById('faq-snippet');
+
+  if (!outputPanel || !toggleBtn) return;
+
+  toggleBtn.addEventListener('click', () => {
+    outputPanel.classList.toggle('collapsed');
+  });
+
+  if (!faqSnippet) return;
+
+  function updateFaqVisibility() {
+    const rect = faqSnippet.getBoundingClientRect();
+    const isAtFaq = rect.top <= window.innerHeight;
+    outputPanel.classList.toggle('in-faq', isAtFaq);
+  }
+
+  window.addEventListener('scroll', updateFaqVisibility, { passive: true });
+  window.addEventListener('resize', updateFaqVisibility, { passive: true });
+  updateFaqVisibility();
+}
 
 async function fetchConv() {
   const res = await fetch('src/convars.json');
@@ -171,8 +223,12 @@ function makecheckbox(item) {
 }
 
 function elementminmax() {
+  const excludedIds = ['cput', 'gamma'];
+
   document.getElementById('btn-min').addEventListener('click', () => {
     convarsData.forEach(item => {
+      if (excludedIds.includes(item.id)) return;
+
       if (item.type === 'sslider') {
         configState[item.id] = item.options[0];
       } else if (item.type === 'checkbox') {
@@ -185,6 +241,8 @@ function elementminmax() {
 
   document.getElementById('btn-max').addEventListener('click', () => {
     convarsData.forEach(item => {
+      if (excludedIds.includes(item.id)) return;
+
       if (item.type === 'sslider') {
         configState[item.id] = item.options[item.options.length - 1];
       } else if (item.type === 'checkbox') {
@@ -225,34 +283,70 @@ function genConf() {
   cfgLines.push('con_enable 1; sv_cheats 1; sv_allow_point_servercommand always; fov_desired 90');
   cfgLines.push('// ..........................................................');
 
-  let currentCat = null;
+  const categoryOrder = [];
+  const categoryItems = {};
 
   convarsData.forEach(item => {
-    if (item.category !== currentCat) {
-      currentCat = item.category;
-      cfgLines.push(`\n// ~ ${currentCat.toLowerCase()} ~`);
+    const cat = item.category;
+    if (!categoryItems[cat]) {
+      categoryOrder.push(cat);
+      categoryItems[cat] = [];
     }
+    categoryItems[cat].push(item);
+  });
 
-    const selectedValue = configState[item.id];
-    const presetKey = String(selectedValue);
-    const commands = item.presets ? item.presets[presetKey] : null;
+  categoryOrder.forEach(cat => {
+    const catLines = [];
+    let hasActiveNetworkSetting = false;
 
-    if (!commands) return;
+    categoryItems[cat].forEach(item => {
+      const selectedValue = configState[item.id];
+      const presetKey = String(selectedValue);
+      const commands = item.presets ? item.presets[presetKey] : null;
 
-    if (Array.isArray(commands)) {
-      if (commands.length > 0) {
-        commands.forEach(cmd => cfgLines.push(cmd));
+      if (!commands) return;
+
+      let cmdLines = [];
+      if (Array.isArray(commands)) {
+        cmdLines = commands.slice();
+      } else if (typeof commands === 'object') {
+        cmdLines = Object.entries(commands).map(([cvar, val]) => `${cvar} ${val}`);
       }
-    } else if (typeof commands === 'object') {
-      Object.entries(commands).forEach(([cvar, val]) => {
-        cfgLines.push(`${cvar} ${val}`);
-      });
-    }
+
+      if (cmdLines.length === 0) return;
+
+      if (cat.toLowerCase() === 'network') {
+        if (item.type === 'checkbox' && selectedValue === true) {
+          hasActiveNetworkSetting = true;
+        } else if (item.type !== 'checkbox') {
+          hasActiveNetworkSetting = true;
+        }
+      }
+
+      if (catLines.length > 0) catLines.push('');
+
+      if (item.id !== 'ascii') {
+        if (item.type === 'checkbox') {
+          const statusText = selectedValue === true ? 'enabled' : 'disabled';
+          catLines.push(`// ${item.label}: ${statusText}`);
+        } else {
+          catLines.push(`// ${item.label}: ${selectedValue}`);
+        }
+      }
+
+      cmdLines.forEach(cmd => catLines.push(cmd));
+    });
+
+    if (cat.toLowerCase() === 'network' && !hasActiveNetworkSetting) return;
+    if (catLines.length === 0) return;
+
+    cfgLines.push(`\n// ~ ${cat.toLowerCase()} ~`);
+    catLines.forEach(line => cfgLines.push(line));
   });
 
   cfgLines.push('');
   cfgLines.push('// ..........................................................');
-  cfgLines.push('echo "underconfig loaded! ^-^"');
+  cfgLines.push('echo "underconfig loaded! (｡･ω･｡)"');
 
   outputEl.textContent = cfgLines.join('\n').trim();
 }

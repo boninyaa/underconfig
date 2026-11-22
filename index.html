@@ -5,48 +5,116 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>underconfig!</title>
-    <meta name="description" content="straight-forward, fast tf2 config generator with just a .cfg file!">
+    <meta name="description" content="lightweight and fast tf2 config generator utilising just autoexec.">
     <link rel="icon" type="image/png" href="assets/uconf-logo.png" />
-    <link rel="stylesheet" href="layout-a.css" />
-    <link rel="stylesheet" href="layout-b.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      if (localStorage.getItem('underconfig-theme') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    </script>
   </head>
   <body>
-    <header class="heading-container">
-      <div class="heading">
-        <img src="assets/uconf-logo.png" class="ulogo nodrag" draggable="false" />
-        <div class="htext">
-          <h1 class="uconf-title">underconfig!</h1>
-          <p class="uconf-desc">straight-forward, fast tf2 config generator with just a .cfg file!</p>
-          <span class="uconf-author">made with ♥ by <a href="https://boni.moe/" target="_blank" rel="noopener noreferrer" class="headlink">bonibon</a> | read the <a href="faq/index.html" class="headlink">faq!</a> | <a href="https://github.com/boninyaa/underconfig" target="_blank" rel="noopener noreferrer" class="headlink"> github</a></span>
-        </div>
-      </div>
-    </header>
-
-    <main class="app-layout">
-      <section class="adjustments">
-        <div class="panelactions">
-          <button type="button" id="btn-min" class="btn-action">set absolute min</button>
-          <button type="button" id="btn-max" class="btn-action">set absolute max</button>
-        </div>
-
-        <div id="controls-container" class="controls-container"></div>
-      </section>
-
-      <section class="outputpanel">
-        <div class="output-header">
-          <span class="output-title">output</span>
-          <div class="output-actions">
-            <button type="button" id="btn-down" class="btn-down">
-              <img src="assets/down.svg" class="btn-icon" draggable="false" />
-              autoexec.cfg
-            </button>
-            <button type="button" id="btn-copy" class="btn-copy">copy!</button>
+    <div class="center-overlay">
+      <header class="heading-container">
+        <button type="button" id="btn-theme" class="btn-theme">
+          <img src="assets/sun.svg" id="theme-icon" class="theme-icon" draggable="false" />
+          <span id="theme-text">switch to light</span>
+        </button>
+        <div class="heading">
+          <img src="assets/uconf-logo.png" class="ulogo nodrag" draggable="false" />
+          <div class="htext">
+            <h1 class="uconf-title">underconfig!</h1>
+            <p class="uconf-desc">lightweight and fast tf2 config generator utilising just autoexec.</p>
+            <span class="uconf-author">made with ♥ by <a href="https://boni.moe/" target="_blank" rel="noopener noreferrer" class="headlink">bonibon</a> | read the <a href="https://blog.underconfig.me/faq" target="_blank" rel="noopener noreferrer" class="headlink">faq!</a> | also check out: <a href="https://blog.underconfig.me/tf2-directx9-vs-directx8-vs-opengl-vs-vulkan/" target="_blank" rel="noopener noreferrer" class="headlink">TF2: DirectX 9 vs DirectX 8 vs OpenGL vs Vulkan</a> | <a href="https://github.com/boninyaa/underconfig" target="_blank" rel="noopener noreferrer" class="headlink"> github</a></span>
           </div>
         </div>
-        <pre class="codeblock"><code id="cfg-output"></code></pre>
-      </section>
-    </main>
+      </header>
 
+      <section class="presets-container">
+        <p class="presets-header">you can also just download a preset.</p>
+        <div class="presets-grid">
+          <a href="presets/underconfig_SuperLight.cfg" download="underconfig_SuperLight.cfg" class="btn-preset">
+            <img src="assets/down.svg" class="preset-icon" draggable="false" />
+            <div class="preset-text">
+              <span class="preset-title">Super-Light</span>
+              <span class="preset-desc">squeeze the most amount of frames possible, reducing any hint of fidelity.</span>
+            </div>
+          </a>
+
+          <a href="presets/underconfig_Optimal.cfg" download="underconfig_Optimal.cfg" class="btn-preset">
+            <img src="assets/down.svg" class="preset-icon" draggable="false" />
+            <div class="preset-text">
+              <span class="preset-title">Optimal</span>
+              <span class="preset-desc">best possible performance without making the game look too awful (this is probably the best one for most people.)</span>
+            </div>
+          </a>
+
+          <a href="presets/underconfig_Cinematic.cfg" download="underconfig_Cinematic.cfg" class="btn-preset">
+            <img src="assets/down.svg" class="preset-icon" draggable="false" />
+            <div class="preset-text">
+              <span class="preset-title">Cinematic</span>
+              <span class="preset-desc">max out every meaningful graphics setting. this will absolutely tank performance in favour of looks. recommended for HLAE/recording from demo files.</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <main class="app-layout">
+        <section class="adjustments">
+          <div class="panelactions">
+            <button type="button" id="btn-min" class="btn-action">set absolute min</button>
+            <button type="button" id="btn-max" class="btn-action">set absolute max</button>
+          </div>
+
+          <div id="controls-container" class="controls-container"></div>
+        </section>
+
+        <section class="outputpanel">
+          <button type="button" id="btn-toggle-output" class="output-toggle" aria-label="toggle output">
+            <img src="assets/pointdown.svg" class="toggle-arrow nodrag" draggable="false" />
+          </button>
+          <div class="output-header">
+            <span class="output-title">output</span>
+            <div class="output-actions">
+              <a href="le_help.png" target="_blank" rel="noopener noreferrer" id="btn-help" class="btn-help">
+                <img src="assets/question.svg" class="btn-icon" draggable="false" />
+                i require assistance!!
+              </a>
+              <button type="button" id="btn-down" class="btn-down">
+                <img src="assets/down.svg" class="btn-icon" draggable="false" />
+                autoexec.cfg
+              </button>
+              <button type="button" id="btn-copy" class="btn-copy">copy!</button>
+            </div>
+          </div>
+          <pre class="codeblock"><code id="cfg-output"></code></pre>
+        </section>
+      </main>
+
+      <section id="faq-snippet" class="faq-snippet">
+        <div class="faq-snippet-top">
+          <a href="https://blog.underconfig.me/faq" target="_blank" rel="noopener noreferrer" class="headlink btn-faq">read full faq</a>
+        </div>
+
+        <div class="faq-snippet-content">
+          <h2 class="blog-subheading">what is underconfig?</h2>
+          <p>a lightweight configurator for Team Fortress 2 based on solely core web technologies. the whole thing runs on a single javascript file without utilising any CDNs and the UI consists of basic html and css.</p>
+
+<h2 class="blog-subheading">how do i use it?</h2>
+
+<p>click the "autoexec.cfg" button and download the .cfg file, then put it into your cfg directory before launching TF2.</p>
+            
+            <p>on windows, your cfg folder is typically located in</p>
+            <div class="cmd-code">C:\Program Files (x86)\Steam\steamapps\common\Team Fortress 2\tf\cfg</div>
+
+            <p>on linux (non-flatpak), your cfg folder is typically located in</p>
+            <div class="cmd-code">/home/yourusername/.local/share/Steam/steamapps/common/Team Fortress 2/tf/cfg</div>
+
+        </div>
+      </section>
+    </div>
     <script src="generator.js"></script>
+    <script src="refresh.js"></script>
   </body>
 </html>
