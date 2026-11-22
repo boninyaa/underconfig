@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   elementminmax();
   elementcfget();
   elementcopy();
+  elementpresets();
 });
 
 function initTheme() {
@@ -377,5 +378,37 @@ function elementcopy() {
     setTimeout(() => {
       copyBtn.innerText = originalText;
     }, 1500);
+  });
+}
+
+function elementpresets() {
+  document.querySelectorAll('.btn-preset').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      const href = btn.getAttribute('href');
+      if (!href) return;
+
+      e.preventDefault();
+      try {
+        const res = await fetch(href);
+        if (!res.ok) throw new Error();
+        const text = await res.text();
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'autoexec.cfg';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } catch {
+        const a = document.createElement('a');
+        a.href = href;
+        a.download = 'autoexec.cfg';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    });
   });
 }
