@@ -1,4 +1,4 @@
-<img src="assets/uconf-title3.png" width="500">
+<img src="assets/uconf-title.png" width="500">
 
 available at [underconfig.me](https://underconfig.me)!
 <h1 class="question">underconfig!</h1>
