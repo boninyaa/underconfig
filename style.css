@@ -85,6 +85,12 @@ a {
   box-shadow: 0 0 45px rgba(0, 0, 0, 0.75);
 }
 
+.threeopt-icon[src="assets/info.svg"] {
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-top: -0.35rem;
+}
+
 .cmd-code {
   font-family: 'jbmono', monospace;
   font-size: 0.8rem;
@@ -114,7 +120,7 @@ div.cmd-code {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.presets-container {
+.threeoptio-container {
   width: 100%;
   margin: 0 auto 2rem auto;
   border: 1.5px solid #ffffff;
@@ -126,7 +132,7 @@ div.cmd-code {
   align-items: center;
 }
 
-.presets-header {
+.threeoptio-header {
   margin: 0 0 1rem 0;
   font-size: 0.8rem;
   font-weight: 700;
@@ -134,7 +140,7 @@ div.cmd-code {
   text-align: center;
 }
 
-.presets-grid {
+.threeoptio-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.85rem;
@@ -143,7 +149,7 @@ div.cmd-code {
   margin: 0 auto;
 }
 
-.btn-preset {
+.btn-thro {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -158,19 +164,19 @@ div.cmd-code {
   text-decoration: none;
 }
 
-.btn-preset:hover {
+.btn-thro:hover {
   background: #ffffff;
   color: #000000;
   border-color: #ffffff;
 }
 
-.btn-preset:active {
+.btn-thro:active {
   background: #e0e0e0;
   color: #000000;
   border-color: #e0e0e0;
 }
 
-.preset-icon {
+.threeopt-icon {
   width: 0.95rem;
   height: 0.95rem;
   filter: invert(1);
@@ -178,38 +184,38 @@ div.cmd-code {
   margin-top: 0.15rem;
 }
 
-.btn-preset:hover .preset-icon,
-.btn-preset:active .preset-icon {
+.btn-thro:hover .threeopt-icon,
+.btn-thro:active .threeopt-icon {
   filter: brightness(0);
 }
 
-.preset-text {
+.threeopt-text {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-.preset-title {
+.threeopt-title {
   font-size: 0.9rem;
   font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
 }
 
-.preset-desc {
+.threeopt-desc {
   font-size: 0.7rem;
   font-weight: 400;
   color: #8f92a8;
   line-height: 1.35;
 }
 
-.btn-preset:hover .preset-title,
-.btn-preset:active .preset-title {
+.btn-thro:hover .threeopt-title,
+.btn-thro:active .threeopt-title {
   color: #000000;
 }
 
-.btn-preset:hover .preset-desc,
-.btn-preset:active .preset-desc {
+.btn-thro:hover .threeopt-desc,
+.btn-thro:active .threeopt-desc {
   color: #222222;
 }
 
@@ -774,7 +780,7 @@ html.light-mode .center-overlay {
 }
 
 html.light-mode .heading-container,
-html.light-mode .presets-container,
+html.light-mode .threeoptio-container,
 html.light-mode .adjustments,
 html.light-mode .outputpanel,
 html.light-mode .faq-snippet {
@@ -795,11 +801,11 @@ html.light-mode .faq-snippet {
     width: 100%;
   }
 
-  .presets-container {
+  .threeoptio-container {
     padding: 1rem 1.25rem;
   }
 
-  .presets-grid {
+  .threeoptio-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 

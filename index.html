@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>underconfig!</title>
-    <meta name="description" content="lightweight and fast tf2 config generator utilising just autoexec.">
+    <meta name="description" content="lightweight tf2 config generator using just autoexec.">
     <link rel="icon" type="image/png" href="assets/uconf-logo.png" />
     <link rel="stylesheet" href="style.css" />
     <script>
@@ -25,36 +25,35 @@
           <img src="assets/uconf-logo.png" class="ulogo nodrag" draggable="false" />
           <div class="htext">
             <h1 class="uconf-title">underconfig!</h1>
-            <p class="uconf-desc">lightweight and fast tf2 config generator utilising just autoexec.</p>
-            <span class="uconf-author">made with ♥ by <a href="https://boni.moe/" target="_blank" rel="noopener noreferrer" class="headlink">bonibon</a> | read the <a href="https://blog.underconfig.me/faq" target="_blank" rel="noopener noreferrer" class="headlink">faq!</a> | also check out: <a href="https://blog.underconfig.me/tf2-directx9-vs-directx8-vs-opengl-vs-vulkan/" target="_blank" rel="noopener noreferrer" class="headlink">TF2: DirectX 9 vs DirectX 8 vs OpenGL vs Vulkan</a> | <a href="https://github.com/boninyaa/underconfig" target="_blank" rel="noopener noreferrer" class="headlink"> github</a></span>
+            <p class="uconf-desc">lightweight tf2 config generator using just autoexec.</p>
+            <span class="uconf-author">made with ♥ by <a href="https://boni.moe/" target="_blank" rel="noopener noreferrer" class="headlink">bonibon</a> | <a href="https://github.com/boninyaa/underconfig" target="_blank" rel="noopener noreferrer" class="headlink"> github</a></span>
           </div>
         </div>
       </header>
 
-      <section class="presets-container">
-        <p class="presets-header">you can also just download a preset.</p>
-        <div class="presets-grid">
-          <a href="presets/underconfig_SuperLight.cfg" download="autoexec.cfg" class="btn-preset">
-            <img src="assets/down.svg" class="preset-icon" draggable="false" />
-            <div class="preset-text">
-              <span class="preset-title">Super-Light</span>
-              <span class="preset-desc">squeeze the most amount of frames possible, reducing any hint of fidelity.</span>
+      <section class="threeoptio-container">
+        <div class="threeoptio-grid">
+          <a href="https://blog.underconfig.me/presets" target="_blank" rel="noopener noreferrer" class="btn-thro">
+            <img src="assets/2gear.svg" class="threeopt-icon" draggable="false" />
+            <div class="threeopt-text">
+              <span class="threeopt-title">presets</span>
+              <span class="threeopt-desc">you can download a preset as well.</span>
             </div>
           </a>
 
-          <a href="presets/underconfig_Optimal.cfg" download="autoexec.cfg" class="btn-preset">
-            <img src="assets/down.svg" class="preset-icon" draggable="false" />
-            <div class="preset-text">
-              <span class="preset-title">Optimal</span>
-              <span class="preset-desc">best possible performance without making the game look too awful (this is probably the best one for most people.)</span>
+          <a href="https://blog.underconfig.me/faq" target="_blank" rel="noopener noreferrer" class="btn-thro">
+            <img src="assets/question.svg" class="threeopt-icon" draggable="false" />
+            <div class="threeopt-text">
+              <span class="threeopt-title">faq</span>
+              <span class="threeopt-desc">read the faq!</span>
             </div>
           </a>
 
-          <a href="presets/underconfig_Cinematic.cfg" download="autoexec.cfg" class="btn-preset">
-            <img src="assets/down.svg" class="preset-icon" draggable="false" />
-            <div class="preset-text">
-              <span class="preset-title">Cinematic</span>
-              <span class="preset-desc">max out every meaningful graphics setting. this will absolutely tank performance in favour of looks. recommended for HLAE/recording from demo files.</span>
+          <a href="https://blog.underconfig.me/tf2-directx9-vs-directx8-vs-opengl-vs-vulkan/" target="_blank" rel="noopener noreferrer" class="btn-thro">
+            <img src="assets/info.svg" class="threeopt-icon" draggable="false" />
+            <div class="threeopt-text">
+              <span class="threeopt-title">graphics APIs help</span>
+              <span class="threeopt-desc">read blog post regarding what graphics API to use (DirectX 9 vs DirectX 8 vs OpenGL vs Vulkan)</span>
             </div>
           </a>
         </div>
@@ -99,7 +98,7 @@
 
         <div class="faq-snippet-content">
           <h2 class="blog-subheading">what is underconfig?</h2>
-          <p>a lightweight configurator for Team Fortress 2 based on solely core web technologies. the whole thing runs on a single javascript file without utilising any CDNs and the UI consists of basic html and css.</p>
+          <p>a lightweight configurator for Team Fortress 2 based on solely core web technologies. the whole thing runs on a single javascript file.</p>
 
 <h2 class="blog-subheading">how do i use it?</h2>
 
@@ -114,7 +113,7 @@
         </div>
       </section>
     </div>
+    <script src="load.js"></script>
     <script src="generator.js"></script>
-    <script src="refresh.js"></script>
   </body>
 </html>
